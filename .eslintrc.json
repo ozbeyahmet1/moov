@@ -3,7 +3,13 @@
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["@typescript-eslint", "prettier", "no-loops", "import"],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "no-loops",
+    "import",
+    "tailwindcss"
+  ],
   "extends": [
     "plugin:storybook/recommended",
     "next",
@@ -42,6 +48,9 @@
         "caughtErrorsIgnorePattern": "^_"
       }
     ],
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/no-custom-classname": "warn",
+    "tailwindcss/no-contradicting-classname": "error",
     // Turn on errors for missing imports.
     "import/no-unresolved": "error",
     "sort-imports": [
