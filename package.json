@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
-    "engines": {
+  "engines": {
     "node": ">=14.0.0",
     "yarn": ">=1.22.0",
     "npm": "please-use-yarn"
@@ -17,6 +17,7 @@
     "@types/node": "18.15.11",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
     "autoprefixer": "10.4.14",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
@@ -26,5 +27,10 @@
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "prettier": "^2.8.7"
   }
 }
