@@ -5,6 +5,7 @@
   },
   "plugins": ["@typescript-eslint", "prettier", "no-loops", "import"],
   "extends": [
+    "plugin:storybook/recommended",
     "next",
     "next/core-web-vitals",
     "eslint:recommended",
@@ -14,6 +15,15 @@
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript"
+  ],
+  "overrides": [
+    {
+      "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+      "rules": {
+        // example of overriding a rule
+        "storybook/hierarchy-separator": "error"
+      }
+    }
   ],
   "globals": {
     "React": "readonly"
