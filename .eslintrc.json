@@ -3,13 +3,7 @@
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "plugins": [
-    "@typescript-eslint",
-    "prettier",
-    "no-loops",
-    "import",
-    "tailwindcss"
-  ],
+  "plugins": ["@typescript-eslint", "prettier", "no-loops", "import", "tailwindcss"],
   "extends": [
     "plugin:storybook/recommended",
     "next",
@@ -66,14 +60,7 @@
     "import/order": [
       "warn",
       {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          ["sibling", "parent"],
-          "index",
-          "unknown"
-        ],
+        "groups": ["builtin", "external", "internal", ["sibling", "parent"], "index", "unknown"],
         "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
     ]

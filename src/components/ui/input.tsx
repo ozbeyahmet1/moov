@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const Input = () => {
   const router = useRouter();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

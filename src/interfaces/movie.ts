@@ -1,5 +1,5 @@
-import { Company } from './company';
-import { Genre } from './genre';
+import { Company } from "./company";
+import { Genre } from "./genre";
 
 export interface Movie {
   readonly id: number;

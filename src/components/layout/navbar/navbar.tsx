@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { Input } from '../../../components/ui/input';
-import { Logo } from '../logo/logo';
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Input } from "../../../components/ui/input";
+import { Logo } from "../logo/logo";
 
 const Header = () => {
   // Navbar toggle
@@ -16,15 +16,15 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    window.addEventListener('scroll', handleStickyNavbar);
+    window.addEventListener("scroll", handleStickyNavbar);
   });
 
   return (
     <header
       className={`left-0 top-0 z-40 flex h-20 w-full flex-col items-center justify-center border-b-[0.5px]  border-solid border-grey bg-transparent transition duration-300 ease-in-out ${
         sticky
-          ? '!fixed !z-[9999] !bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm !transition dark:!bg-blue dark:!bg-opacity-50'
-          : 'absolute'
+          ? "!fixed !z-[9999] !bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm !transition dark:!bg-blue dark:!bg-opacity-50"
+          : "absolute"
       }`}
     >
       <div className="container px-0">

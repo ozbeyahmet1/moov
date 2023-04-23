@@ -1,33 +1,15 @@
-import Image from 'next/image';
-import { Genre } from '../../interfaces/genre';
+import Image from "next/image";
 
-const twClasses = {
-  categoriesTag:
-    'rounded-md uppercase border-2 border-white py-1 px-3 text-sm font-semibold text-white',
-  movieName: 'font-mandalore mb-8 text-6xl font-bold uppercase',
-};
-
-interface Props {
-  readonly movieName?: string;
-  readonly description?: string;
-  readonly categories?: ReadonlyArray<Genre>;
-  readonly imageSource: string;
-  readonly font?: string;
-}
-
-export const HeroSection = ({
-  description,
-  imageSource,
-  categories,
-  movieName,
-  font,
-}: Props) => {
-  const fontFamily: string = font ? `font-${font}` : ' ';
+export const HeroSection = () => {
+  const categories = [{ id: 18, name: "Drama" }];
   return (
     <section
       id="home"
       className="relative z-10 overflow-hidden pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px]  2xl:pt-[210px]"
-      style={{ background: `url(${imageSource})`, backgroundSize: 'cover' }}
+      style={{
+        background: `url(https://res.cloudinary.com/droheqpxn/image/upload/v1681912683/movie-app/backgroundv3_fiu2ju.png)`,
+        backgroundSize: "cover",
+      }}
     >
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
@@ -40,18 +22,20 @@ export const HeroSection = ({
                 height={100}
                 alt=""
               />
-              <h1
-                className={`mb-4 ${fontFamily}  font-bold uppercase leading-tight text-white`}
-              >
-                {movieName}
+              <h1 className={`mb-4 font-mandalore text-8xl font-bold uppercase leading-tight text-white`}>
+                Mandalorian
               </h1>
               <p className="mb-5 text-base font-light !leading-relaxed text-grey dark:opacity-90 sm:text-lg md:text-xl">
-                {description}
+                The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the
+                New Republic.
               </p>
               <div className="flex  items-center justify-start  sm:flex-row sm:space-x-4 sm:space-y-0">
                 {categories?.map((category) => {
                   return (
-                    <div key={category.id} className={twClasses.categoriesTag}>
+                    <div
+                      key={category.id}
+                      className="rounded-md border-2 border-white px-3 py-1 text-sm font-semibold uppercase text-white"
+                    >
                       {category.name}
                     </div>
                   );

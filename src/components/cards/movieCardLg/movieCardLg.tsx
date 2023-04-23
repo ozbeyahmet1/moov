@@ -1,13 +1,10 @@
-import { MovieCardProps } from '@/interfaces/movieCard';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import { TMBD_IMAGE_ENDPOINT, noImageUrl } from '../../../utils';
+import { MovieCardProps } from "@/interfaces/movieCard";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { TMBD_IMAGE_ENDPOINT, noImageUrl } from "../../../utils";
 
-export const MovieCard = ({
-  movie: { id, poster_path, title },
-  index,
-}: MovieCardProps) => {
+export const MovieCard = ({ movie: { id, poster_path, title }, index }: MovieCardProps) => {
   console.log(poster_path);
   return (
     <Link href={`movies/${id.toString()}`}>

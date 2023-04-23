@@ -1,14 +1,11 @@
-import Head from 'next/head';
+import Head from "next/head";
 
 export const HeadComponent = () => {
   return (
     <Head>
       {/* Meta tags */}
       <title>Moov | Stream Bliss</title>
-      <meta
-        name="description"
-        content="Discover a vast collection of movies and TV shows on our streaming platform"
-      />
+      <meta name="description" content="Discover a vast collection of movies and TV shows on our streaming platform" />
       <meta
         name="keywords"
         content="Movie, Director, Cast, Trailer, Review, Rating, Release Date, Action, Horror, Romantic, Movie Series, Best Movies, New Releases, Most Watched Movies, Oscar Winning Movies, Foreign Language Movies, Movie Industry, Famous Movie Producers, Directors, Critique, Recommendations"
