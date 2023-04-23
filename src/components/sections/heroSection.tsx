@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { Category } from '../../interfaces/category';
+import { Genre } from '../../interfaces/genre';
 
 const twClasses = {
   categoriesTag:
@@ -11,7 +10,7 @@ const twClasses = {
 interface Props {
   readonly movieName?: string;
   readonly description?: string;
-  readonly categories?: ReadonlyArray<Category>;
+  readonly categories?: ReadonlyArray<Genre>;
   readonly imageSource: string;
   readonly font?: string;
 }
@@ -20,20 +19,22 @@ export const HeroSection = ({
   description,
   imageSource,
   categories,
+  movieName,
   font,
 }: Props) => {
   const fontFamily: string = font ? `font-${font}` : ' ';
   return (
     <section
       id="home"
-      className="relative z-10 overflow-hidden  pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px]  2xl:pt-[210px]"
-      style={{ background: `url(${imageSource})` }}
+      className="relative z-10 overflow-hidden pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px]  2xl:pt-[210px]"
+      style={{ background: `url(${imageSource})`, backgroundSize: 'cover' }}
     >
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full">
             <div className="max-w-[600px] text-start" data-wow-delay=".2s">
               <Image
+                className="bg-cover"
                 src="https://res.cloudinary.com/droheqpxn/image/upload/v1682038694/movie-app/logo-disney-white_n9ylzi.png"
                 width={170}
                 height={100}
@@ -42,7 +43,7 @@ export const HeroSection = ({
               <h1
                 className={`mb-4 ${fontFamily}  font-bold uppercase leading-tight text-white`}
               >
-                Mandalorian
+                {movieName}
               </h1>
               <p className="mb-5 text-base font-light !leading-relaxed text-grey dark:opacity-90 sm:text-lg md:text-xl">
                 {description}
@@ -50,13 +51,9 @@ export const HeroSection = ({
               <div className="flex  items-center justify-start  sm:flex-row sm:space-x-4 sm:space-y-0">
                 {categories?.map((category) => {
                   return (
-                    <Link
-                      key={category.id}
-                      href="https://nextjstemplates.com/templates/startup"
-                      className={twClasses.categoriesTag}
-                    >
+                    <div key={category.id} className={twClasses.categoriesTag}>
                       {category.name}
-                    </Link>
+                    </div>
                   );
                 })}
               </div>
