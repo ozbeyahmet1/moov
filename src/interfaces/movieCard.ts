@@ -1,5 +1,6 @@
+import { Movie } from './movie';
+
 export interface MovieCardProps {
-  readonly movieId: number;
-  readonly id: number;
-  readonly banner_src: string;
+  readonly movie: Pick<Movie, 'id' | 'title' | 'poster_path'>;
+  readonly index: number;
 }
