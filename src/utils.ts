@@ -9,7 +9,7 @@ if (!TMDB_API_KEY) {
   throw new Error("TMDB API key not found in environment variables.");
 }
 
-//Endpoints
+//Movie Endpoints
 export const movieEndpoints = {
   topRated: `${TMDB_BASE_URL}/movie/top_rated?api_key=${TMDB_API_KEY}&language=en-US`,
   popular: `${TMDB_BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}&language=en-US`,

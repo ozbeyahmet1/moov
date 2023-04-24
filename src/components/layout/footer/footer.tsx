@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AiOutlineCopyrightCircle } from "react-icons/ai";
-import { Logo } from "./logo/logo";
-const Footer = () => {
+import { Logo } from "../logo/logo";
+export const Footer = () => {
   return (
     <footer className="relative bottom-0 z-10  bg-darkBlue pt-6 text-white md:pt-10 lg:pt-12" data-wow-delay=".1s">
       <div className="container">
@@ -22,5 +22,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

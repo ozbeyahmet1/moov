@@ -1,8 +1,8 @@
-import { MovieCard } from "@/components/cards/movieCardLg/movieCard";
+import { MovieCard } from "@/components/cards/movieCard/movieCard";
 import { CardSize } from "@/interfaces/movieCard";
 import { useMovieContext } from "@/providers/movieProvider";
 
-const Favorites = () => {
+const FavoritesPage = () => {
   const { favorites, addFavorite, removeFavorite, movies } = useMovieContext();
   return (
     <div className="container mt-32 flex  flex-col items-center px-0 pb-10">
@@ -19,4 +19,4 @@ const Favorites = () => {
   );
 };
 
-export default Favorites;
+export default FavoritesPage;

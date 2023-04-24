@@ -17,14 +17,14 @@ export const Input = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="relative flex rounded-lg border border-grey">
-        <span className="inline-flex items-center  rounded-l-md  bg-transparent px-3 text-sm text-grey">
+      <div className="relative mx-2 flex rounded-lg border border-grey">
+        <span className="inline-flex items-center  rounded-l-md  bg-transparent px-[4px] text-sm text-grey md:px-3">
           <AiOutlineSearch size={30} color="white" />
         </span>
         <input
           type="text"
           id="email-with-icon"
-          className="w-full flex-1 appearance-none rounded-r-lg  bg-transparent px-4 py-2 text-base  text-grey placeholder-grey shadow-sm  focus:outline-none"
+          className="w-full flex-1 appearance-none rounded-r-lg  bg-transparent px-2 py-2 text-base text-grey  placeholder-grey shadow-sm focus:outline-none  md:px-4"
           name="email"
           placeholder="Search movies"
           value={query}
