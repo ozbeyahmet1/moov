@@ -1,4 +1,4 @@
-import { RelatedMoviesSection } from "@/components/sections/relatedMoviesSection";
+import { SimilarMoviesSection } from "@/components/sections/similarMoviesSection";
 import { Movie } from "@/interfaces/movie";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Image from "next/image";
@@ -119,7 +119,7 @@ export default function MovieDetails({ movie, similarMovies }: PropsWithMovie<Pr
           <p className="text-white">{movie?.overview}</p>
           <div className="mt-4">
             <h3 className="text-lg font-bold text-white">Related Movies</h3>
-            <RelatedMoviesSection movies={similarMovies} />
+            <SimilarMoviesSection movies={similarMovies} />
           </div>
         </div>
       </div>
