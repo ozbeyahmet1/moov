@@ -56,19 +56,9 @@ export default function MovieDetails({ movie, similarMovies }: PropsWithMovie<Pr
     };
 
     return isLiked ? (
-      <AiFillHeart
-        className="cursor-pointer"
-        onClick={handleClick}
-        color="red"
-        size={50}
-      />
+      <AiFillHeart className="cursor-pointer" onClick={handleClick} color="red" size={50} />
     ) : (
-      <AiOutlineHeart
-        className="cursor-pointer"
-        onClick={handleClick}
-        color="white"
-        size={50}
-      />
+      <AiOutlineHeart className="cursor-pointer" onClick={handleClick} color="white" size={50} />
     );
   }
 
