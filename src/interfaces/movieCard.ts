@@ -1,6 +1,7 @@
 import { Movie } from "./movie";
 
 export enum CardSize {
+  SM,
   MD,
   LG,
 }

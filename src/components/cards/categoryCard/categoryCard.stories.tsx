@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { CategoryCard as CategoryCardComponent } from "./categoryCard";
 
 const meta: Meta<typeof CategoryCardComponent> = {
-  title: "Card",
+  title: "Cards",
   component: CategoryCardComponent,
 };
 

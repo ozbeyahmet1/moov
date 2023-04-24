@@ -7,7 +7,7 @@ export const SimilarMoviesSection = ({ movies }: PropsWithMovieCards) => {
     <section id="features" className="hide-scroll-bar z-50  flex overflow-x-scroll bg-blue">
       <div className="flex flex-nowrap gap-1 px-0 py-4" id="my-scrollable-div">
         {movies?.map((movie, i) => (
-          <MovieCard index={i} movie={movie} size={CardSize.MD} key={i} />
+          <MovieCard index={i} movie={movie} size={CardSize.SM} key={i} />
         ))}
       </div>
     </section>

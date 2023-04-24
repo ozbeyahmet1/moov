@@ -75,9 +75,9 @@ const MovieDetailsPage = ({ movie, similarMovies }: PropsWithMovie<Props>) => {
   }, [favorites, movieId, router]);
 
   return (
-    <div className="container mt-32 px-0 pb-10">
-      <div className="flex items-start ">
-        <div className="w-1/3">
+    <div className="container  px-0 pb-10 md:mt-32">
+      <div className="flex flex-col items-start md:flex-row ">
+        <div className="w-full md:w-1/3">
           <Image
             src={movie?.poster_path ? TMBD_IMAGE_ENDPOINT + movie.poster_path : noImageUrl}
             alt=""
@@ -87,24 +87,21 @@ const MovieDetailsPage = ({ movie, similarMovies }: PropsWithMovie<Props>) => {
           />
         </div>
 
-        <div className="flex w-2/3 flex-col pb-10">
+        <div className="mb:p-0 flex w-full flex-col p-6 pb-10 md:w-2/3">
           <div className=" items-start justify-between">
             <div className="flex items-center justify-between">
-              <h3 className="text-4xl font-bold text-white ">{movie?.title}</h3>
-
+              <h3 className="text-2xl font-bold text-white md:text-4xl ">{movie?.title}</h3>
               {FavoriteButton(Number(movieId))}
-              <div className="flex items-center gap-3">
-                <p className="text-4xl font-semibold text-white">
-                  {movie?.vote_average && roundToOneDecimal(movie?.vote_average)}
-                </p>
-                <FaImdb color="#f3ce13" size={40} />
-              </div>
             </div>
           </div>
 
-          <div className="mt-4 flex gap-6 font-medium text-grey">
+          <div className=" my-2 flex gap-6 text-sm font-medium text-grey md:text-base">
             <p>{movie?.release_date.slice(0, 4)}</p>|
-            {movie?.runtime && <p>{convertMinutesToHoursAndMinutes(movie?.runtime)}</p>}
+            {movie?.runtime && <p>{convertMinutesToHoursAndMinutes(movie?.runtime)}</p>} |
+            <div className="flex items-center gap-2">
+              <p>{movie?.vote_average && roundToOneDecimal(movie?.vote_average)}</p>
+              <FaImdb color="#f3ce13" size={20} />
+            </div>
           </div>
           <p className="text-white">{movie?.overview}</p>
           <div className="mt-4">

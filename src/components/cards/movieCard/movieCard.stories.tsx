@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { MovieCard as MovieCardComponent } from "./movieCard";
 
 const meta: Meta<typeof MovieCardComponent> = {
-  title: "Card",
+  title: "Cards",
   component: MovieCardComponent,
 };
 
