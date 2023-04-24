@@ -56,13 +56,6 @@
         "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
         "allowSeparatedGroups": true
       }
-    ],
-    "import/order": [
-      "warn",
-      {
-        "groups": ["builtin", "external", "internal", ["sibling", "parent"], "index", "unknown"],
-        "alphabetize": { "order": "asc", "caseInsensitive": true }
-      }
     ]
   }
 }
