@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { Genre } from "./interfaces/genre";
 import { Movie } from "./interfaces/movie";
+import { Video } from "./interfaces/video";
 
 export const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 export const TMDB_API_KEY = process.env.NEXT_TMDB_API_KEY;
@@ -8,7 +9,7 @@ export const TMBD_IMAGE_ENDPOINT = "https://image.tmdb.org/t/p/w500/";
 if (!TMDB_API_KEY) {
   throw new Error("TMDB API key not found in environment variables.");
 }
-
+export const TMDB_VIDEO_ENDPOINT = "https://www.youtube.com/watch?v=";
 //Movie Endpoints
 export const movieEndpoints = {
   topRated: `${TMDB_BASE_URL}/movie/top_rated?api_key=${TMDB_API_KEY}&language=en-US`,
@@ -32,6 +33,9 @@ export const movieBySearchResult = (query: string, page: string) =>
 // Function to generate an endpoint for getting movies by category
 export const movieByCategory = (category: string) =>
   `${TMDB_BASE_URL}/discover/movie?api_key=${TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${category}&with_watch_monetization_types=flatrate`;
+
+export const trailerByMovieIdEndpoint = (movieId: string) =>
+  `${TMDB_BASE_URL}/movie/${movieId}/videos?api_key=${TMDB_API_KEY}`;
 
 // Defining an async function to fetch data from the provided endpoint and returning the desired response key
 export async function getData<T>(endpoint: string, responseKey: string): Promise<T[]> {
@@ -62,6 +66,7 @@ export const getMoviesData = (endpoint: string) => getData<Movie>(endpoint, "res
 
 export const getSingleMovieData = (endpoint: string) => getSingleData<Movie>(endpoint);
 
+export const getTrailer = (endpoint: string) => getData<Video>(endpoint, "results");
 // Functions to fetch total pages and total results for a movie list
 export const getTotalPages = (endpoint: string) => getData<Movie>(endpoint, "total_pages");
 
