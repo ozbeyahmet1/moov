@@ -5,7 +5,7 @@ const nextConfig = {
     NEXT_TMDB_API_KEY: process.env.NEXT_TMDB_API_KEY,
   },
   images: {
-    domains: ['api.themoviedb.org', 'image.tmdb.org'],
+    domains: ["api.themoviedb.org", "image.tmdb.org", "res.cloudinary.com"],
   },
 };
 
