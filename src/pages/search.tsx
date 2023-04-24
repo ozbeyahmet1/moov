@@ -1,9 +1,10 @@
-import { Pagination } from "@/components/ui/pagination";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
-import { MovieCard } from "../components/cards/movieCardLg/movieCardLg";
-import { PropsWithMovie, getMoviesData, getTotalPages, getTotalResults, movieBySearchResult } from "../utils";
+import { MovieCard } from "../components/cards/movieCardLg/movieCard";
+import { Pagination } from "../components/ui/pagination";
+import { CardSize } from "../interfaces/movieCard";
+import { PropsWithMovieCards, getMoviesData, getTotalPages, getTotalResults, movieBySearchResult } from "../utils";
 
 interface SearchPageParams extends ParsedUrlQuery {
   readonly query: string;
@@ -16,7 +17,7 @@ interface Props {
   readonly page: string;
 }
 
-export const getServerSideProps: GetServerSideProps<PropsWithMovie, SearchPageParams> = async (
+export const getServerSideProps: GetServerSideProps<PropsWithMovieCards, SearchPageParams> = async (
   context: GetServerSidePropsContext<SearchPageParams>,
 ) => {
   const query = context.query?.query as string;
@@ -36,17 +37,16 @@ export const getServerSideProps: GetServerSideProps<PropsWithMovie, SearchPagePa
   };
 };
 
-const Search = ({ movies, total_results, total_pages, page }: PropsWithMovie<Props>) => {
+const Search = ({ movies, total_results, total_pages, page }: PropsWithMovieCards<Props>) => {
   const router = useRouter();
   const { query } = router.query;
-  console.log(total_results, total_pages);
 
   return (
     <div className="container mt-32 flex  flex-col items-center px-0 pb-10">
       {movies && movies.length > 0 ? (
         <div className="grid grid-cols-1 gap-x-12 gap-y-20 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5">
           {movies.map((movie, i) => {
-            return <MovieCard key={i} index={i / 10} movie={movie} />;
+            return <MovieCard index={i} movie={movie} size={CardSize.LG} key={i} />;
           })}
         </div>
       ) : (

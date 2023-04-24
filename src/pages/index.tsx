@@ -1,4 +1,5 @@
 import { CategoriesSection } from "@/components/sections/categoriesSection";
+import { TopRatedSection } from "@/components/sections/topRatedMoviesSection";
 import { GetStaticProps } from "next";
 import { HeroSection } from "../components/sections/heroSection";
 import { PopularMoviesSection } from "../components/sections/popularMoviesSection";
@@ -41,6 +42,7 @@ const MoviesPage = ({ topRatedMovies, popularMovies, categories }: MoviesPagePro
       <HeroSection />
       <PopularMoviesSection movies={popularMovies} />
       <CategoriesSection categories={categories} />
+      <TopRatedSection movies={topRatedMovies} />
     </div>
   );
 };
