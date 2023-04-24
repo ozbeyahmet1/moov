@@ -1,5 +1,6 @@
 import { SimilarMoviesSection } from "@/components/sections/similarMoviesSection";
 import { Movie } from "@/interfaces/movie";
+import { Video } from "@/interfaces/video";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -7,17 +8,21 @@ import { ParsedUrlQuery } from "querystring";
 import { useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FaImdb } from "react-icons/fa";
+import YouTube from "react-youtube";
 import { useMovieContext } from "../../providers/movieProvider";
 import {
   PropsWithMovie,
   TMBD_IMAGE_ENDPOINT,
+  TMDB_VIDEO_ENDPOINT,
   convertMinutesToHoursAndMinutes,
   getMoviesData,
   getSingleMovieData,
+  getTrailer,
   movieByIdEndpoint,
   noImageUrl,
   roundToOneDecimal,
   similarMoviesByIdEndpoint,
+  trailerByMovieIdEndpoint,
 } from "../../utils";
 
 interface SearchPageParams extends ParsedUrlQuery {
@@ -26,6 +31,7 @@ interface SearchPageParams extends ParsedUrlQuery {
 
 interface Props {
   readonly similarMovies: ReadonlyArray<Movie>;
+  readonly video: ReadonlyArray<Video>;
 }
 
 export const getServerSideProps: GetServerSideProps<PropsWithMovie, SearchPageParams> = async (
@@ -36,15 +42,19 @@ export const getServerSideProps: GetServerSideProps<PropsWithMovie, SearchPagePa
   const similarMoviesEndpoint = similarMoviesByIdEndpoint(query.toString());
   const movie = await getSingleMovieData(endpoint);
   const similarMovies = await getMoviesData(similarMoviesEndpoint);
+  const trailerEndpoint = trailerByMovieIdEndpoint(query.toString());
+  const video = await getTrailer(trailerEndpoint);
+
   return {
     props: {
       movie,
       similarMovies,
+      video,
     },
   };
 };
 
-const MovieDetailsPage = ({ movie, similarMovies }: PropsWithMovie<Props>) => {
+const MovieDetailsPage = ({ movie, similarMovies, video }: PropsWithMovie<Props>) => {
   const { favorites, addFavorite, removeFavorite } = useMovieContext();
   function FavoriteButton(movieId: number) {
     const handleClick = () => {
@@ -73,7 +83,7 @@ const MovieDetailsPage = ({ movie, similarMovies }: PropsWithMovie<Props>) => {
       setIsLiked(false);
     }
   }, [favorites, movieId, router]);
-
+  const trailerUrl = TMDB_VIDEO_ENDPOINT + video[0].key;
   return (
     <div className="container  px-0 pb-10 md:mt-32">
       <div className="flex flex-col items-start md:flex-row ">
@@ -104,9 +114,19 @@ const MovieDetailsPage = ({ movie, similarMovies }: PropsWithMovie<Props>) => {
             </div>
           </div>
           <p className="text-white">{movie?.overview}</p>
+          {similarMovies && similarMovies.length > 0 && (
+            <div className="mt-4">
+              <h3 className="text-lg font-bold text-white">Similar Movies</h3>
+              <SimilarMoviesSection movies={similarMovies} />
+            </div>
+          )}
           <div className="mt-4">
-            <h3 className="text-lg font-bold text-white">Related Movies</h3>
-            <SimilarMoviesSection movies={similarMovies} />
+            <h3 className="mb-4 text-lg font-bold text-white">Teaser</h3>
+            {video[0].key ? (
+              <YouTube videoId={video[0].key} iframeClassName="w-full h-auto object-cover xs:h-[300px] md:h-[500px]" />
+            ) : (
+              <p>No teaser found</p>
+            )}
           </div>
         </div>
       </div>
