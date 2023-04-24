@@ -1,17 +1,23 @@
 // Button.stories.ts|tsx
 
+// Replace your-framework with the name of your framework
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { CategoryCard as CategoryCardTemplate } from "./categoryCard";
+import { CategoryCard as CategoryCardComponent } from "./categoryCard";
 
-const meta: Meta<typeof CategoryCardTemplate> = {
+const meta: Meta<typeof CategoryCardComponent> = {
   title: "Card",
-  component: CategoryCardTemplate,
+  component: CategoryCardComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof CategoryCardTemplate>;
+type Story = StoryObj<typeof CategoryCardComponent>;
 
 export const CategoryCard: Story = {
-  render: () => <CategoryCardTemplate category={{ id: 1, name: "Action" }} key={1} />,
+  args: {
+    category: {
+      id: 1,
+      name: "Action",
+    },
+  },
 };
