@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps<PropsWithMovie, SearchPagePa
   };
 };
 
-export default function MovieDetails({ movie, similarMovies }: PropsWithMovie<Props>) {
+const MovieDetailsPage = ({ movie, similarMovies }: PropsWithMovie<Props>) => {
   const { favorites, addFavorite, removeFavorite } = useMovieContext();
   function FavoriteButton(movieId: number) {
     const handleClick = () => {
@@ -115,4 +115,6 @@ export default function MovieDetails({ movie, similarMovies }: PropsWithMovie<Pr
       </div>
     </div>
   );
-}
+};
+
+export default MovieDetailsPage;

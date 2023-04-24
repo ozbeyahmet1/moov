@@ -1,10 +1,10 @@
 // import Footer from './footer';
 import { PropsWithChildren } from "react";
-import Footer from "./footer";
+import { Footer } from "./footer/footer";
 import { HeadComponent } from "./head";
-import Navbar from "./navbar/navbar";
+import { Navbar } from "./navbar/navbar";
 
-export default function Layout({ children }: PropsWithChildren) {
+export const Layout = ({ children }: PropsWithChildren) => {
   return (
     <>
       <HeadComponent />
@@ -13,4 +13,6 @@ export default function Layout({ children }: PropsWithChildren) {
       <Footer />
     </>
   );
-}
+};
+
+export default Layout;

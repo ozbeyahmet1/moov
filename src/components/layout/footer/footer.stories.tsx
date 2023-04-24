@@ -1,14 +1,14 @@
 // Button.stories.ts|tsx
 
 import type { Meta, StoryObj } from "@storybook/react";
-import Footer from "./footer";
+import { Footer as FooterComponent } from "./footer";
 
-const meta: Meta<typeof Footer> = {
+const meta: Meta<typeof FooterComponent> = {
   title: "Layout",
-  component: Footer,
+  component: FooterComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof Footer>;
+type Story = StoryObj<typeof FooterComponent>;
 
 export const FooterE: Story = {};

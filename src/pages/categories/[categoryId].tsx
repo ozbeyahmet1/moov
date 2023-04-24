@@ -1,8 +1,7 @@
-import { MovieCard } from "@/components/cards/movieCardLg/movieCard";
+import { MovieCard } from "@/components/cards/movieCard/movieCard";
 import { CardSize } from "@/interfaces/movieCard";
 import { PropsWithMovieCards, getMoviesData, movieByCategory } from "@/utils";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
-import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 
 interface SearchPageParams extends ParsedUrlQuery {
@@ -23,15 +22,11 @@ export const getServerSideProps: GetServerSideProps<PropsWithMovieCards, SearchP
   return {
     props: {
       movies,
-      query,
     },
   };
 };
 
-const Search = ({ movies, query }: PropsWithMovieCards<Props>) => {
-  const router = useRouter();
-  // const { query } = router.query;
-  console.log(query);
+const Search = ({ movies }: PropsWithMovieCards<Props>) => {
   return (
     <div className="container mt-32 flex  flex-col items-center px-0 pb-10">
       {movies && movies.length > 0 ? (

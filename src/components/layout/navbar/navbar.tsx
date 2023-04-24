@@ -1,12 +1,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Input } from "../../../components/ui/input";
+import { Input } from "../../ui/input/input";
 import { Logo } from "../logo/logo";
 
-const Header = () => {
-  // Navbar toggle
-
-  // Sticky Navbar
+export const Navbar = () => {
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
     if (window.scrollY >= 90) {
@@ -43,5 +40,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

@@ -1,6 +1,6 @@
 import { CardSize } from "@/interfaces/movieCard";
 import { PropsWithMovieCards } from "@/utils";
-import { MovieCard } from "../cards/movieCardLg/movieCard";
+import { MovieCard } from "../cards/movieCard/movieCard";
 
 export const PopularMoviesSection = ({ movies }: PropsWithMovieCards) => {
   return (

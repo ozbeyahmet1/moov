@@ -14,6 +14,7 @@ const twClasses = {
   nextButton: "rounded-sm border-2 border-white bg-transparent px-2 text-white cursor-pointer ml-2",
   prevButton: "rounded-sm border-2 border-white bg-transparent px-2 text-white cursor-pointer mr-2",
 };
+
 export const Pagination = ({ element_number, total_page, current_page, query }: Props) => {
   const router = useRouter();
 

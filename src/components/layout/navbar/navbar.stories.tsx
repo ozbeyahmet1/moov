@@ -1,14 +1,14 @@
 // Button.stories.ts|tsx
 
 import type { Meta, StoryObj } from "@storybook/react";
-import Navbar from "./navbar";
+import { Navbar as NavbarComponent } from "./navbar";
 
-const meta: Meta<typeof Navbar> = {
+const meta: Meta<typeof NavbarComponent> = {
   title: "Layout",
-  component: Navbar,
+  component: NavbarComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof Navbar>;
+type Story = StoryObj<typeof NavbarComponent>;
 
 export const NavBar: Story = {};

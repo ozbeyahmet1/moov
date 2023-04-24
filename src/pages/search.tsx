@@ -1,8 +1,8 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
-import { MovieCard } from "../components/cards/movieCardLg/movieCard";
-import { Pagination } from "../components/ui/pagination";
+import { MovieCard } from "../components/cards/movieCard/movieCard";
+import { Pagination } from "../components/ui/pagination/pagination";
 import { CardSize } from "../interfaces/movieCard";
 import { PropsWithMovieCards, getMoviesData, getTotalPages, getTotalResults, movieBySearchResult } from "../utils";
 
@@ -37,7 +37,7 @@ export const getServerSideProps: GetServerSideProps<PropsWithMovieCards, SearchP
   };
 };
 
-const Search = ({ movies, total_results, total_pages, page }: PropsWithMovieCards<Props>) => {
+const SearchPage = ({ movies, total_results, total_pages, page }: PropsWithMovieCards<Props>) => {
   const router = useRouter();
   const { query } = router.query;
 
@@ -66,4 +66,4 @@ const Search = ({ movies, total_results, total_pages, page }: PropsWithMovieCard
   );
 };
 
-export default Search;
+export default SearchPage;
